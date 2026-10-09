@@ -49,83 +49,85 @@
 }
 
 :root {
-  /* Kargovo marka paleti: koyu lacivert + turkuaz + beyaz */
-  --navy-950: #0a1222;
-  --navy-900: #0e1a30;
-  --navy-800: #142642;
-  --navy-700: #1d3457;
-  --turquoise-600: #0d9488;
-  --turquoise-500: #14b8a6;
-  --turquoise-400: #2dd4bf;
-  --turquoise-100: #ccfbf1;
+  /* Kargovo marka paleti — panel.kargovo.com ile birebir eşleşir:
+     açık gri zemin + beyaz kartlar + magenta aktif durum + altın vurgu */
+  --kargovo-magenta: #e50091;
+  --kargovo-magenta-dark: #c8007e;
+  --kargovo-gold: #d8b746;
+  --kargovo-gold-soft: rgba(216, 183, 70, 0.14);
+  --kargovo-ink: #212529;
+  --kargovo-gray: #666668;
+  --kargovo-red: #e2483e;
+  --kargovo-green: #1dcf71;
 
-  --background: #f6f8fb;
-  --foreground: var(--navy-900);
+  --background: #f0f0f2;
+  --foreground: var(--kargovo-ink);
   --card: #ffffff;
-  --card-foreground: var(--navy-900);
+  --card-foreground: var(--kargovo-ink);
   --popover: #ffffff;
-  --popover-foreground: var(--navy-900);
-  --primary: var(--turquoise-600);
+  --popover-foreground: var(--kargovo-ink);
+  --primary: var(--kargovo-magenta);
   --primary-foreground: #ffffff;
-  --secondary: #eaf2f8;
-  --secondary-foreground: var(--navy-900);
-  --muted: #eef1f6;
-  --muted-foreground: #5b6b82;
-  --accent: var(--turquoise-100);
-  --accent-foreground: var(--navy-900);
-  --destructive: #dc2626;
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: var(--turquoise-500);
-  --chart-1: var(--turquoise-500);
-  --chart-2: var(--navy-700);
+  --secondary: #f1f3f5;
+  --secondary-foreground: var(--kargovo-ink);
+  --muted: #eef0f2;
+  --muted-foreground: var(--kargovo-gray);
+  --accent: var(--kargovo-gold-soft);
+  --accent-foreground: var(--kargovo-ink);
+  --destructive: var(--kargovo-red);
+  --border: #e3e6ea;
+  --input: #e3e6ea;
+  --ring: var(--kargovo-magenta);
+  --chart-1: var(--kargovo-magenta);
+  --chart-2: var(--kargovo-gold);
   --chart-3: #38bdf8;
-  --chart-4: #f59e0b;
-  --chart-5: #ef4444;
-  --radius: 0.75rem;
+  --chart-4: var(--kargovo-green);
+  --chart-5: var(--kargovo-red);
+  --radius: 0.9rem;
 
-  --sidebar: var(--navy-950);
-  --sidebar-foreground: #e7edf6;
-  --sidebar-primary: var(--turquoise-500);
-  --sidebar-primary-foreground: var(--navy-950);
-  --sidebar-accent: var(--navy-800);
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: rgba(255, 255, 255, 0.08);
-  --sidebar-ring: var(--turquoise-500);
+  --sidebar: #ffffff;
+  --sidebar-foreground: var(--kargovo-gray);
+  --sidebar-primary: var(--kargovo-magenta);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(229, 0, 145, 0.08);
+  --sidebar-accent-foreground: var(--kargovo-ink);
+  --sidebar-border: #e3e6ea;
+  --sidebar-ring: var(--kargovo-magenta);
 }
 
 .dark {
-  --background: var(--navy-950);
-  --foreground: #e7edf6;
-  --card: var(--navy-900);
-  --card-foreground: #e7edf6;
-  --popover: var(--navy-900);
-  --popover-foreground: #e7edf6;
-  --primary: var(--turquoise-500);
-  --primary-foreground: var(--navy-950);
-  --secondary: var(--navy-800);
-  --secondary-foreground: #e7edf6;
-  --muted: var(--navy-800);
-  --muted-foreground: #93a3bb;
-  --accent: var(--navy-700);
-  --accent-foreground: #ffffff;
-  --destructive: #f87171;
-  --border: rgba(255, 255, 255, 0.1);
-  --input: rgba(255, 255, 255, 0.15);
-  --ring: var(--turquoise-500);
-  --chart-1: var(--turquoise-500);
-  --chart-2: #38bdf8;
-  --chart-3: #f59e0b;
-  --chart-4: #a78bfa;
-  --chart-5: #f87171;
-  --sidebar: var(--navy-950);
-  --sidebar-foreground: #e7edf6;
-  --sidebar-primary: var(--turquoise-500);
-  --sidebar-primary-foreground: var(--navy-950);
-  --sidebar-accent: var(--navy-800);
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: rgba(255, 255, 255, 0.08);
-  --sidebar-ring: var(--turquoise-500);
+  /* Bu uygulamada koyu tema kullanılmıyor; açık temayla aynı tutulur. */
+  --background: #f0f0f2;
+  --foreground: var(--kargovo-ink);
+  --card: #ffffff;
+  --card-foreground: var(--kargovo-ink);
+  --popover: #ffffff;
+  --popover-foreground: var(--kargovo-ink);
+  --primary: var(--kargovo-magenta);
+  --primary-foreground: #ffffff;
+  --secondary: #f1f3f5;
+  --secondary-foreground: var(--kargovo-ink);
+  --muted: #eef0f2;
+  --muted-foreground: var(--kargovo-gray);
+  --accent: var(--kargovo-gold-soft);
+  --accent-foreground: var(--kargovo-ink);
+  --destructive: var(--kargovo-red);
+  --border: #e3e6ea;
+  --input: #e3e6ea;
+  --ring: var(--kargovo-magenta);
+  --chart-1: var(--kargovo-magenta);
+  --chart-2: var(--kargovo-gold);
+  --chart-3: #38bdf8;
+  --chart-4: var(--kargovo-green);
+  --chart-5: var(--kargovo-red);
+  --sidebar: #ffffff;
+  --sidebar-foreground: var(--kargovo-gray);
+  --sidebar-primary: var(--kargovo-magenta);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(229, 0, 145, 0.08);
+  --sidebar-accent-foreground: var(--kargovo-ink);
+  --sidebar-border: #e3e6ea;
+  --sidebar-ring: var(--kargovo-magenta);
 }
 
 @layer base {

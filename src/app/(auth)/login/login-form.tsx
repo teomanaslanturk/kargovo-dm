@@ -22,7 +22,7 @@ export function LoginForm({ callbackUrl, isDemoMode }: LoginFormProps) {
   );
 
   return (
-    <Card>
+    <Card className="shadow-xl">
       <CardContent className="pt-6">
         <form action={formAction} className="flex flex-col gap-4">
           <input type="hidden" name="callbackUrl" value={callbackUrl} />
@@ -59,7 +59,12 @@ export function LoginForm({ callbackUrl, isDemoMode }: LoginFormProps) {
             </p>
           ) : null}
 
-          <Button type="submit" disabled={isPending} className="mt-1 w-full">
+          <Button
+            type="submit"
+            disabled={isPending}
+            className="mt-1 w-full border-0 font-bold text-[#3a2e05] hover:brightness-95"
+            style={{ backgroundColor: "var(--kargovo-gold)" }}
+          >
             {isPending ? (
               <Loader2 className="h-4 w-4 animate-spin" />
             ) : (

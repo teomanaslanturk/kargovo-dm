@@ -12,7 +12,7 @@ interface StatCardProps {
 
 const accentStyles: Record<NonNullable<StatCardProps["accent"]>, string> = {
   turquoise: "bg-primary/10 text-primary",
-  navy: "bg-[color-mix(in_oklch,var(--navy-800),transparent_85%)] text-[var(--navy-800)]",
+  navy: "bg-[color:var(--kargovo-gold-soft)] text-[#8a6c1f]",
   amber: "bg-amber-50 text-amber-600",
   emerald: "bg-emerald-50 text-emerald-600",
 };

@@ -22,7 +22,7 @@ export function MobileSidebar({ unreadCount = 0 }: MobileSidebarProps) {
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetContent
         side="left"
-        className="w-72 bg-sidebar p-0 text-sidebar-foreground [&_[data-slot=sheet-close]]:text-white"
+        className="w-72 bg-sidebar p-0 text-sidebar-foreground"
       >
         <SheetTitle className="sr-only">Gezinme Menüsü</SheetTitle>
         <SidebarLogo />
