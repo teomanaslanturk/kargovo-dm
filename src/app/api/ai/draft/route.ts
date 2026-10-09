@@ -3,6 +3,7 @@ import { z } from "zod";
 import { auth } from "@/lib/auth";
 import { getAIProvider } from "@/lib/ai";
 import { demoKnowledgeBase } from "@/lib/demo-data";
+import { rateLimit } from "@/lib/rate-limit";
 
 /**
  * POST /api/ai/draft
@@ -22,6 +23,16 @@ export async function POST(request: Request) {
   const session = await auth();
   if (!session) {
     return NextResponse.json({ error: "Yetkisiz istek." }, { status: 401 });
+  }
+
+  // Kullanıcı başına dakikada en fazla 20 AI yanıt taslağı isteği.
+  const rateLimitKey = `ai-draft:${session.user?.email ?? "unknown"}`;
+  const { allowed, resetAt } = rateLimit(rateLimitKey, 20, 60_000);
+  if (!allowed) {
+    return NextResponse.json(
+      { error: "Çok fazla istek gönderildi. Lütfen birkaç saniye bekleyin." },
+      { status: 429, headers: { "Retry-After": String(Math.ceil((resetAt - Date.now()) / 1000)) } },
+    );
   }
 
   const body = await request.json().catch(() => null);

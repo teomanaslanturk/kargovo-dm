@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { isDatabaseConfigured, isMetaConfigured } from "@/lib/config";
 import { parseInstagramMessages, verifyMetaSignature } from "@/lib/instagram/webhook";
+import { rateLimit } from "@/lib/rate-limit";
 
 /**
  * GET /api/webhooks/instagram
@@ -48,6 +49,14 @@ export async function GET(request: Request) {
  *    tetiklememek için bu önemlidir.
  */
 export async function POST(request: Request) {
+  // IP başına dakikada en fazla 120 webhook isteği (kötüye kullanım / DoS koruması).
+  const forwardedFor = request.headers.get("x-forwarded-for");
+  const clientIp = forwardedFor?.split(",")[0]?.trim() ?? "unknown";
+  const { allowed } = rateLimit(`ig-webhook:${clientIp}`, 120, 60_000);
+  if (!allowed) {
+    return NextResponse.json({ error: "Çok fazla istek." }, { status: 429 });
+  }
+
   const rawBody = await request.text();
   const appSecret = process.env.META_WEBHOOK_APP_SECRET;
   const signatureHeader = request.headers.get("x-hub-signature-256");
